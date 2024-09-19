@@ -1,5 +1,5 @@
-const handdler = (requestHandler)=>{
-   (req,res,next)=>{
+export const asynchandler = (requestHandler)=>{
+   return (req,res,next)=>{
       Promise.resolve(requestHandler(req,res,next)).catch((err)=>{
          next(err)
       })
@@ -7,4 +7,3 @@ const handdler = (requestHandler)=>{
 
 }
 
-export default handdler;
